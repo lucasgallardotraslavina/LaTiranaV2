@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe de Libros - Librería La Tirana</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <style>
+        body {
+            background-color: #f4f4f4;
+        }
+
+        .header {
+            background-color: #343a40;
+            color: white;
+        }
+
+        .form-section {
+            margin: 2rem auto; /* centrado automático en el contenedor */
+            padding: 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 600px; /* máximo ancho para el formulario */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Encabezado -->
+    <header class="header text-center py-4">
+        <h1 class="logo">Generación de Informes</h1>
+    </header>
+
+    <!-- Sección de Generación de Informes -->
+    <section class="container form-section">
+        <h2 class="text-center">Informe de Libros</h2>
+        <form action="/generate-report" method="POST">
+            <div class="form-group">
+                <label for="tipoInforme">Tipo de Informe:</label>
+                <select id="tipoInforme" name="tipoInforme" class="form-control" required>
+                    <option value="" disabled selected>Seleccione un tipo de informe</option>
+                    <option value="porAutor">Por Autor</option>
+                    <option value="porFecha">Por Fecha</option>
+                    <option value="porCategoria">Por Categoría</option>
+                    <option value="todos">Todos los Libros</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="filtro">Filtro (opcional):</label>
+                <input type="text" id="filtro" name="filtro" class="form-control" placeholder="Ejemplo: nombre del autor, fecha, categoría">
+            </div>
+
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary">Generar Informe</button>
+            </div>
+        </form>
+    </section>
+
+    <!-- Pie de página -->
+    <footer class="footer text-center py-4">
+        <div class="container">
+            <p>&copy; 2024 Librería La Tirana. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

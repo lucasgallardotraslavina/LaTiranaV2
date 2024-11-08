@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Librería La Tirana</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <style>
+        body {
+            background-color: #f4f4f4;
+        }
+
+        .header {
+            background-color: #343a40;
+            color: white;
+        }
+
+        .logo {
+            font-size: 2rem;
+            margin: 0;
+        }
+
+        .nav-link {
+            font-size: 1.1rem;
+        }
+
+        .carousel-caption {
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        .carousel-item img {
+            max-width: 70%; /* Ajusta el porcentaje según el tamaño que desees */
+            margin: auto; /* Centra la imagen */
+            display: block; /* Asegura que se comporta como un bloque */
+        }
+
+
+        .card {
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            background-color: #343a40;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Encabezado -->
+    <header class="header text-center py-4">
+        <h1 class="logo">Librería La Tirana</h1>
+        <nav>
+            <ul class="nav justify-content-center">
+                <li class="nav-item"><a class="nav-link text-white" href="#novedades">Novedades</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#categorias">Categorías</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#destacados">Destacados</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#contacto">Contacto</a></li>
+                <li class="nav-item"><div class="nav-link text-white"><a href="/libros">Libros</a></div></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección de Carrusel de Novedades -->
+    <!-- Sección de Carrusel de Novedades -->
+<section id="novedades" class="my-4">
+    <div class="container">
+        <h2 class="text-center">Novedades</h2>
+        <div class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="static/css/img/libro4.jpg" class="d-block" alt="Libro Novedad 1">
+                    <div class="carousel-caption d-none d-md-block">
+                        <p>Por qué recordamos</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="static/css/img/libro7.jpg" class="d-block" alt="Libro Novedad 2">
+                    <div class="carousel-caption d-none d-md-block">
+                        <p>Inteligencia bondadosa</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="static/css/img/libro8.jpg" class="d-block" alt="Libro Novedad 3">
+                    <div class="carousel-caption d-none d-md-block">
+                        <p>Profesor a mucha honra</p>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#novedades" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Anterior</span>
+            </a>
+            <a class="carousel-control-next" href="#novedades" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Siguiente</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Sección de Categorías -->
+    <section id="categorias" class="my-4">
+        <div class="container">
+            <h2 class="text-center">Categorías</h2>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Ficción</h5>
+                            <p class="card-text">Desde novelas hasta cuentos de fantasía.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">No Ficción</h5>
+                            <p class="card-text">Ensayos, biografías, y libros de historia.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Infantiles</h5>
+                            <p class="card-text">Cuentos y libros educativos para los más pequeños.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Ciencia y Tecnología</h5>
+                            <p class="card-text">Libros de ciencia, informática y avances tecnológicos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Libros Destacados -->
+    <section id="destacados" class="my-4">
+        <div class="container">
+            <h2 class="text-center">Libros Destacados</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="static/css/img/libro1.jpg" class="card-img-top" alt="Libro Destacado 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Libro Destacado 1</h5>
+                            <p class="card-text">Autor/a: Nombre del Autor/a</p>
+                            <p class="card-text">Descripción breve del libro destacado.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="static/css/img/libro2.jpg" class="card-img-top" alt="Libro Destacado 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Libro Destacado 2</h5>
+                            <p class="card-text">Autor/a: Nombre del Autor/a</p>
+                            <p class="card-text">Descripción breve del libro destacado.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="static/css/img/libro3.jpg" class="card-img-top" alt="Libro Destacado 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Libro Destacado 3</h5>
+                            <p class="card-text">Autor/a: Nombre del Autor/a</p>
+                            <p class="card-text">Descripción breve del libro destacado.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section id="contacto" class="my-4">
+        <div class="container">
+            <h2 class="text-center">Contacto</h2>
+            <form action="/send-message" method="POST">
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" class="form-control" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Enviar</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer class="footer text-center py-4">
+        <div class="container">
+            <p>&copy; 2024 Librería La Tirana. Todos los derechos reservados.</p>
+            <p>Síguenos en:
+                <a href="https://www.facebook.com/people/La-Tirana/100064035758289/?locale=sq_AL" class="text-white">Facebook</a> |
+                <a href="https://www.instagram.com/la_tirana_spa/" class="text-white">Instagram</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

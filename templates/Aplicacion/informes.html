@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generar Informe</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Generar Informe</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.titulo.label_tag }}
+                {{ form.titulo }}
+            </div>
+            <div class="form-group">
+                {{ form.descripcion.label_tag }}
+                {{ form.descripcion }}
+            </div>
+            <div class="form-group">
+                {{ form.observaciones.label_tag }}
+                {{ form.observaciones }}
+            </div>
+            <div class="form-group">
+                {{ form.destinatario.label_tag }}
+                {{ form.destinatario }}
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Generar y Enviar Informe</button>
+        </form>
+        <a href="{% url 'libros' %}" class="btn btn-secondary mt-3">Volver a Libros</a>
+    </div>
+    <div>
+        <h2>Informes Enviados</h2>
+        <ul>
+            {% for informe in informes %}
+                <li>
+                    <strong>{{ informe.titulo }}</strong> - Enviado a: {{ informe.enviado_a }} - Fecha: {{ informe.fecha_envio }}
+                    <p>{{ informe.contenido }}</p>
+                </li>
+            {% empty %}
+                <p>No se han enviado informes aún.</p>
+            {% endfor %}
+        </ul>
+
+    </div>
+</body>
+</html>

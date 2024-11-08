@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Libros</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            margin: auto;
+        }
+        .alert {
+            margin-bottom: 30px;
+        }
+        .table th, .table td {
+            vertical-align: middle;
+        }
+        .btn {
+            margin: 5px;
+        }
+        .btn-danger {
+            background-color: #dc3545;
+            border: none;
+        }
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+        .btn-info {
+            background-color: #17a2b8;
+            border: none;
+        }
+        .btn-info:hover {
+            background-color: #138496;
+        }
+        .float-end {
+            float: right;
+        }
+        .text-center-custom {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="alert alert-info text-center display-4">Listado de Libros</div>
+
+        <div class="text-center mb-4 text-center-custom">
+            <a href="{% url 'informes' %}" class="btn btn-success btn-lg">
+                <i class="fas fa-file-alt"></i> Generar Informes
+            </a>
+        </div>
+
+        {% if libros %}
+        <table class="table table-striped table-hover text-center">
+            <thead class="thead-light">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Autor</th>
+                    <th>Editorial</th>
+                    <th>Género</th>
+                    <th>Cantidad</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for libro in libros %}
+                <tr>
+                    <td>{{ libro.nombre }}</td>
+                    <td>{{ libro.descripcion }}</td>
+                    <td>{{ libro.autor }}</td>
+                    <td>{{ libro.editorial }}</td>
+                    <td>{{ libro.genero }}</td>
+                    <td>{{ libro.cantidad }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <div class="alert alert-primary text-center" role="alert">
+            <strong>No se encuentran libros</strong>
+        </div>
+        {% endif %}
+
+        <div class="mt-5 text-center">
+            <a href="../dashboard/jefe-bodega" class="btn btn-danger">Volver al Inicio</a>
+            <a href="../agregarLibro" class="btn btn-info float-end">Agregar Libro</a>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Libros</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            background-color: #f0f2f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #4a4a4a;
+        }
+        .hero {
+            padding: 50px;
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            max-width: 1000px;
+            margin: auto;
+        }
+        .btn-custom {
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+        .btn-primary-custom {
+            background-color: #28a745;
+            color: #fff;
+        }
+        .btn-primary-custom:hover {
+            background-color: #218838;
+        }
+        .btn-info-custom {
+            background-color: #17a2b8;
+            color: #fff;
+        }
+        .btn-info-custom:hover {
+            background-color: #138496;
+        }
+        .btn-danger-custom {
+            background-color: #dc3545;
+            color: #fff;
+        }
+        .btn-danger-custom:hover {
+            background-color: #c82333;
+        }
+        .table-responsive {
+            margin-top: 2rem;
+        }
+        .table th, .table td {
+            vertical-align: middle;
+            font-size: 0.95rem;
+        }
+        .no-books-alert {
+            font-size: 1.1rem;
+            color: #007bff;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>Biblioteca Virtual</h1>
+        <p>Administra, visualiza y organiza tu colección de libros de manera eficiente y accesible.</p>
+        <a href="{% url 'informes' %}" class="btn btn-primary-custom btn-lg btn-custom mt-3">
+            <i class="fas fa-file-alt mr-2"></i> Generar Informe
+        </a>
+    </div>
+
+    <div class="container">
+        <h2 class="text-center mb-4">Listado de Libros</h2>
+        
+        {% if libros %}
+        <div class="table-responsive">
+            <table class="table table-hover table-striped text-center">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Autor</th>
+                        <th>Editorial</th>
+                        <th>Género</th>
+                        <th>Cantidad</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for libro in libros %}
+                    <tr>
+                        <td>{{ libro.nombre }}</td>
+                        <td>{{ libro.descripcion }}</td>
+                        <td>{{ libro.autor }}</td>
+                        <td>{{ libro.editorial }}</td>
+                        <td>{{ libro.genero }}</td>
+                        <td>{{ libro.cantidad }}</td>
+                        <td>
+                            <a href="/actualizarLibro/{{ libro.id }}" class="btn btn-info-custom btn-sm btn-custom">
+                                <i class="fas fa-edit"></i> Editar
+                            </a>
+                            <a href="/eliminarLibro/{{ libro.id }}" class="btn btn-danger-custom btn-sm btn-custom" onClick="return confirm('¿Seguro que quieres eliminar este libro?')">
+                                <i class="fas fa-trash-alt"></i> Eliminar
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div class="alert alert-primary text-center no-books-alert" role="alert">
+            <strong>No se encuentran libros</strong>
+        </div>
+        {% endif %}
+
+        <div class="d-flex justify-content-between mt-4">
+            <a href="../" class="btn btn-danger-custom btn-custom">Volver al Inicio</a>
+            <a href="../agregarLibro" class="btn btn-info-custom btn-custom">
+                <i class="fas fa-plus-circle"></i> Agregar Libro
+            </a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Biblioteca Virtual. Todos los derechos reservados.</p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
