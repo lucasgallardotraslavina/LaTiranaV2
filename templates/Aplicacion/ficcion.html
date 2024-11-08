@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Libros</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #343a40;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .catalogo {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .libro {
+            background-color: white;
+            border-radius: 8px;
+            margin: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            width: 30%; /* Ocupa el 30% del ancho disponible para cada libro */
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative; /* Necesario para posicionar el botón de reserva */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .libro:hover {
+            transform: translateY(-10px); /* Eleva el libro al pasar el cursor */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+        .libro img {
+            width: 100%;
+            height: 650px; /* Ajusta la altura a un valor fijo */
+            object-fit: cover; /* Mantiene la proporción de la imagen recortada */
+            border-radius: 8px;
+        }
+        .libro h3 {
+            margin-top: 10px;
+            font-size: 1.2em;
+        }
+        .libro p {
+            color: #555;
+            font-size: 0.9em;
+        }
+        .libro .precio {
+            font-weight: bold;
+            color: #333;
+            margin-top: 10px;
+        }
+        .reservar-btn {
+            display: none; /* Ocultamos el botón inicialmente */
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background-color: #28a745; /* Color verde para el botón */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .libro:hover .reservar-btn {
+            display: block; /* Muestra el botón cuando se pasa el cursor */
+        }
+        .reservar-btn:hover {
+            background-color: #218838; /* Cambia a un verde más oscuro cuando el cursor está encima */
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Catálogo de Ficcion</h1>
+    <h1>Catálogo de Ficción</h1>
+    <form method="get" action="{% url 'catalogo_busqueda' %}" style="margin-top: 20px;">
+        <input type="text" name="q" placeholder="Buscar libro..." style="padding: 10px; width: 300px; border-radius: 5px;">
+        <button type="submit" style="padding: 10px 20px; background-color: #343a40; color: white; border: none; border-radius: 5px;">Buscar</button>
+    </form>
+</header>
+
+<div class="catalogo">
+    <!-- Libro 1 -->
+    <div class="libro">
+        <img src="/static/img/catalogo/img1.png" alt="Portada del libro 1">
+        <h3>Título del Libro 1</h3>
+        <p>Autor: Nombre del autor</p>
+        <p>Descripción breve del libro. Una sinopsis del contenido.</p>
+        <p class="precio">$19.99</p>
+        <button class="reservar-btn">Reservar</button>
+    </div>
+
+    <!-- Libro 2 -->
+    <div class="libro">
+        <img src="/static/img/catalogo/img2.png" alt="Portada del libro 2">
+        <h3>Título del Libro 2</h3>
+        <p>Autor: Nombre del autor</p>
+        <p>Descripción breve del libro. Una sinopsis del contenido.</p>
+        <p class="precio">$24.99</p>
+        <button class="reservar-btn">Reservar</button>
+    </div>
+
+    <!-- Libro 3 -->
+    <div class="libro">
+        <img src="/static/img/catalogo/img3.png" alt="Portada del libro 3">
+        <h3>Título del Libro 3</h3>
+        <p>Autor: Nombre del autor</p>
+        <p>Descripción breve del libro. Una sinopsis del contenido.</p>
+        <p class="precio">$29.99</p>
+        <button class="reservar-btn">Reservar</button>
+    </div>
+
+    <!-- Libro 4 -->
+    <div class="libro">
+        <img src="/static/img/catalogo/img4.png" alt="Portada del libro 4">
+        <h3>Título del Libro 4</h3>
+        <p>Autor: Nombre del autor</p>
+        <p>Descripción breve del libro. Una sinopsis del contenido.</p>
+        <p class="precio">$19.99</p>
+        <button class="reservar-btn">Reservar</button>
+    </div>
+
+    <!-- Libro 5 -->
+    <div class="libro">
+        <img src="/static/img/catalogo/img5.png" alt="Portada del libro 5">
+        <h3>Título del Libro 5</h3>
+        <p>Autor: Nombre del autor</p>
+        <p>Descripción breve del libro. Una sinopsis del contenido.</p>
+        <p class="precio">$24.99</p>
+        <button class="reservar-btn">Reservar</button>
+    </div>
+
+    <!-- Libro 6 -->
+    <div class="libro">
+        <img src="/static/img/catalogo/img6.png" alt="Portada del libro 6">
+        <h3>Título del Libro 6</h3>
+        <p>Autor: Nombre del autor</p>
+        <p>Descripción breve del libro. Una sinopsis del contenido.</p>
+        <p class="precio">$29.99</p>
+        <button class="reservar-btn">Reservar</button>
+    </div>
+
+    <!-- Libro 7 -->
+    <div class="libro">
+        <img src="/static/img/catalogo/img7.png" alt="Portada del libro 7">
+        <h3>Título del Libro 7</h3>
+        <p>Autor: Nombre del autor</p>
+        <p>Descripción breve del libro. Una sinopsis del contenido.</p>
+        <p class="precio">$19.99</p>
+        <button class="reservar-btn">Reservar</button>
+    </div>
+
+    <!-- Libro 8 -->
+    <div class="libro">
+        <img src="/static/img/catalogo/img8.png" alt="Portada del libro 8">
+        <h3>Título del Libro 8</h3>
+        <p>Autor: Nombre del autor</p>
+        <p>Descripción breve del libro. Una sinopsis del contenido.</p>
+        <p class="precio">$24.99</p>
+        <button class="reservar-btn">Reservar</button>
+    </div>
+
+    <!-- Libro 9 -->
+    <div class="libro">
+        <img src="/static/img/catalogo/img9.png" alt="Portada del libro 9">
+        <h3>Título del Libro 9</h3>
+        <p>Autor: Nombre del autor</p>
+        <p>Descripción breve del libro. Una sinopsis del contenido.</p>
+        <p class="precio">$29.99</p>
+        <button class="reservar-btn">Reservar</button>
+    </div>
+</div>
+
+</body>
+</html>

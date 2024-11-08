@@ -31,19 +31,5 @@
         </form>
         <a href="{% url 'libros' %}" class="btn btn-secondary mt-3">Volver a Libros</a>
     </div>
-    <div>
-        <h2>Informes Enviados</h2>
-        <ul>
-            {% for informe in informes %}
-                <li>
-                    <strong>{{ informe.titulo }}</strong> - Enviado a: {{ informe.enviado_a }} - Fecha: {{ informe.fecha_envio }}
-                    <p>{{ informe.contenido }}</p>
-                </li>
-            {% empty %}
-                <p>No se han enviado informes aún.</p>
-            {% endfor %}
-        </ul>
-
-    </div>
 </body>
 </html>

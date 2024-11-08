@@ -207,3 +207,22 @@ from .models import Informe
 def listar_informes(request):
     informes = Informe.objects.filter(usuario=request.user)
     return render(request, 'Aplicacion/informes.html', {'informes': informes})
+
+
+def informes_guardados(request):
+    # Obtener todos los informes almacenados en la base de datos
+    informes = Informe.objects.all()
+    return render(request, 'Aplicacion/informes_guardados.html', {'informes': informes})
+
+def ficcion(request):
+    return render(request, 'Aplicacion/ficcion.html')
+
+
+def catalogo_busqueda(request):
+    query = request.GET.get('q', '')  # Obtén el término de búsqueda
+    if query:
+        libros = Libro.objects.filter(titulo__icontains=query)  # Filtra por título (o autor, descripción, etc.)
+    else:
+        libros = Libro.objects.all()  # Si no hay búsqueda, muestra todos los libros
+    
+    return render(request, 'catalogo.html', {'libros': libros})

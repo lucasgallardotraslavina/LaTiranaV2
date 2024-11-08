@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informes Guardados</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Informes Guardados</h2>
+        <div class="mt-4">
+            <a href="{% url 'generar_informe' %}" class="btn btn-primary mb-3">Generar Nuevo Informe</a>
+            <ul class="list-group">
+                {% for informe in informes %}
+                    <li class="list-group-item">
+                        <h4><strong>{{ informe.titulo }}</strong></h4>
+                        <p><strong>Enviado a:</strong> {{ informe.enviado_a }}</p>
+                        <p><strong>Contenido:</strong> {{ informe.contenido }}</p>
+                        <p><strong>Observaciones:</strong> {{ informe.observaciones }}</p>
+                    </li>
+                {% empty %}
+                    <li class="list-group-item">No hay informes guardados.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
